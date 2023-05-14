@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { BASE_URL } from 'src/constants/server'
 
 export async function getScheduleList() {
     try {
@@ -33,7 +34,7 @@ export async function updateSchedule(id, scheduleData) {
 
 export async function deleteSchedule(id) {
     try {
-        const { data: schedule } = await axios.delete(`http://localhost:9000/schedule/delete/${id}`)
+        const { data: schedule } = await axios.delete(`${BASE_URL}/schedule/delete/${id}`)
         if(!schedule) throw new Error()
 
         return schedule
